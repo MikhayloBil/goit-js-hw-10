@@ -23,3 +23,22 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+a {
+  text-decoration: none;
+}
+
+.navigation {
+    font-family: Montserrat;
+font-size: 16px;
+font-weight: 900;
+line-height: 24px;
+letter-spacing: 0.04em;
+text-align: left;
+color: rgb(39, 152, 105);
+}
+
+.navigation:hover,
+.navigation:focus {
+    color: deeppink;
+}
