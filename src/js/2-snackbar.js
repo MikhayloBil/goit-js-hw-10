@@ -28,21 +28,21 @@ function createPromise(delay, state) {
       if (state === "fulfilled") {
         resolve(delay);
       } else {
-        reject(new Error(`Promise rejected after ${delay}ms`));
+        reject(delay);
       }
     }, delay);
   })
   .then((delay) => {
     iziToast.success({
-      title: "Success",
+      title: " ",
       message: `✅ Fulfilled promise in ${delay}ms`,
       position: "topRight",
     });
   })
   .catch((error) => {
     iziToast.error({
-      title: "Error",
-      message: `❌ ${error.message}`,
+      title: " ",
+      message: `❌ Rejected promise in ${delay}ms`,
       position: "topRight",
     });
   });

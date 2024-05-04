@@ -13,7 +13,7 @@ const datePicker = flatpickr("#datetime-picker", {
     if (userSelectedDate > new Date()) {
       startButton.disabled = false;
     } else {
-            startButton.disabled = true;
+      startButton.disabled = true;
         iziToast.error({
         title: "Error",
         message: "Please choose a date in the future",
@@ -28,8 +28,12 @@ const hoursElement = document.querySelector("[data-hours]");
 const minutesElement = document.querySelector("[data-minutes]");
 const secondsElement = document.querySelector("[data-seconds]");
 const startButton = document.querySelector("[data-start]");
+startButton.disabled = true;
 
-startButton.addEventListener("click", function() {
+
+startButton.addEventListener("click", function () {
+  startButton.disabled = true;
+  document.getElementById("datetime-picker").disabled = true;
   updateTimer();
   timerInterval = setInterval(updateTimer, 1000);
 });
@@ -42,7 +46,8 @@ function updateTimer() {
     const difference = userSelectedDate - now;
      if (difference <= 0) {
     clearInterval(timerInterval);
-    startButton.disabled = true;
+       startButton.disabled = true;
+       document.getElementById("datetime-picker").disabled = false;
     iziToast.success({
       title: "Success",
       message: "Timer finished",
